@@ -37,6 +37,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A1E7028299BA5C300C05E3C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7A1E7029299BA5C900C05E3C /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				7AF77B49299BA1C10099A2E8 /* ViewController.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		7A1E702A299BA5D400C05E3C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7AF77B50299BA1C20099A2E8 /* LaunchScreen.storyboard */,
+				7AF77B4B299BA1C10099A2E8 /* Main.storyboard */,
+				7AF77B4E299BA1C20099A2E8 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7A1E702B299BA5DA00C05E3C /* Environments */ = {
+			isa = PBXGroup;
+			children = (
+				7AF77B53299BA1C20099A2E8 /* Info.plist */,
+			);
+			path = Environments;
+			sourceTree = "<group>";
+		};
 		7AF77B39299BA1C10099A2E8 = {
 			isa = PBXGroup;
 			children = (
@@ -58,11 +91,10 @@
 			children = (
 				7AF77B45299BA1C10099A2E8 /* AppDelegate.swift */,
 				7AF77B47299BA1C10099A2E8 /* SceneDelegate.swift */,
-				7AF77B49299BA1C10099A2E8 /* ViewController.swift */,
-				7AF77B4B299BA1C10099A2E8 /* Main.storyboard */,
-				7AF77B4E299BA1C20099A2E8 /* Assets.xcassets */,
-				7AF77B50299BA1C20099A2E8 /* LaunchScreen.storyboard */,
-				7AF77B53299BA1C20099A2E8 /* Info.plist */,
+				7A1E7028299BA5C300C05E3C /* Models */,
+				7A1E7029299BA5C900C05E3C /* Flow */,
+				7A1E702A299BA5D400C05E3C /* Resources */,
+				7A1E702B299BA5DA00C05E3C /* Environments */,
 			);
 			path = MyNews;
 			sourceTree = "<group>";
@@ -289,7 +321,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LA6FA5G5XC;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyNews/Info.plist;
+				INFOPLIST_FILE = MyNews/Environments/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "My News";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -322,7 +354,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LA6FA5G5XC;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyNews/Info.plist;
+				INFOPLIST_FILE = MyNews/Environments/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "My News";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
