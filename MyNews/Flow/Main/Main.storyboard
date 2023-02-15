@@ -5,11 +5,28 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Detail News View Controller-->
+        <scene sceneID="fDO-W8-Psd">
+            <objects>
+                <viewController id="17m-20-daH" customClass="DetailNewsViewController" customModule="MyNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rpt-U0-aTt">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="uJ6-hJ-ddi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pU5-Zm-djQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tin-gq-ZQb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-190" y="2173"/>
+        </scene>
         <!--News-->
         <scene sceneID="9dG-uZ-Q4F">
             <objects>
@@ -17,14 +34,34 @@
                     <view key="view" contentMode="scaleToFill" id="9kn-YB-fsY">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Apz-G2-Qj9">
+                                <rect key="frame" x="0.0" y="155" width="393" height="614"/>
+                                <color key="backgroundColor" name="BackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ddX-KO-98T" id="q5O-OC-cNp"/>
+                                    <outlet property="delegate" destination="ddX-KO-98T" id="lW6-zv-sAV"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="HZ6-zh-LbH"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HZ6-zh-LbH" firstAttribute="bottom" secondItem="Apz-G2-Qj9" secondAttribute="bottom" id="1Gl-kr-T9f"/>
+                            <constraint firstItem="HZ6-zh-LbH" firstAttribute="trailing" secondItem="Apz-G2-Qj9" secondAttribute="trailing" id="Q6Q-89-0fd"/>
+                            <constraint firstItem="Apz-G2-Qj9" firstAttribute="leading" secondItem="HZ6-zh-LbH" secondAttribute="leading" id="Vo9-g3-dXS"/>
+                            <constraint firstItem="Apz-G2-Qj9" firstAttribute="top" secondItem="HZ6-zh-LbH" secondAttribute="top" id="cAh-z7-cDy"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Новости" id="kz5-wb-zol"/>
+                    <navigationItem key="navigationItem" title="Новости" largeTitleDisplayMode="always" id="kz5-wb-zol"/>
+                    <connections>
+                        <outlet property="tableView" destination="Apz-G2-Qj9" id="n4y-4v-K8c"/>
+                        <segue destination="17m-20-daH" kind="show" identifier="goDetailNews" id="Yue-Mx-hpu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LT6-GR-M15" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-190" y="1451"/>
+            <point key="canvasLocation" x="-190.07633587786259" y="1450.7042253521126"/>
         </scene>
         <!--Map-->
         <scene sceneID="Lst-Bj-SWh">
@@ -65,7 +102,7 @@
                         <viewLayoutGuide key="safeArea" id="U3p-KR-6B5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Избранное" id="LRB-9Y-oOS"/>
+                    <navigationItem key="navigationItem" title="Избранное" largeTitleDisplayMode="always" id="LRB-9Y-oOS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LPd-L1-s3R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -81,7 +118,7 @@
                         <viewLayoutGuide key="safeArea" id="z0I-RL-7ZL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Профиль" id="qFd-4v-fqU"/>
+                    <navigationItem key="navigationItem" title="Профиль" largeTitleDisplayMode="always" id="qFd-4v-fqU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gIQ-Ha-6VV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -93,6 +130,7 @@
                 <tabBarController storyboardIdentifier="MainTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="CZ0-cw-PZc" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vhu-0M-QJA">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -148,7 +186,6 @@
         <!--Профиль-->
         <scene sceneID="qdz-bF-QJk">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="anr-EI-VtY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SXh-FM-cQl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="3" title="Профиль" id="FyJ-4S-IYb"/>
                     <toolbarItems/>
@@ -161,11 +198,15 @@
                         <segue destination="IkY-el-SM3" kind="relationship" relationship="rootViewController" id="s1s-1O-Rk3"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="anr-EI-VtY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1963" y="754"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="BackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -32,7 +32,7 @@
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Почта" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iI6-iQ-8B6" customClass="InputTextField" customModule="MyNews" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
-                                    <color key="backgroundColor" name="BackgroundColor"/>
+                                    <color key="backgroundColor" name="TextFieldColor"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="300" id="0OS-cD-3Vy"/>
@@ -43,7 +43,7 @@
                                 </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GK3-px-HXC" customClass="InputTextField" customModule="MyNews" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="59" width="300" height="44"/>
-                                    <color key="backgroundColor" name="BackgroundColor"/>
+                                    <color key="backgroundColor" name="TextFieldColor"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="300" id="4oM-HX-m80"/>
@@ -103,11 +103,11 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="BackgroundColor">
-            <color red="0.45882352941176469" green="0.5725490196078431" blue="0.8666666666666667" alpha="0.098240894039735113" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="MainColor">
-            <color red="0.45882352941176469" green="0.5725490196078431" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.45899999141693115" green="0.57300001382827759" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextFieldColor">
+            <color red="0.45899999141693115" green="0.57300001382827759" blue="0.86699998378753662" alpha="0.097999997437000275" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

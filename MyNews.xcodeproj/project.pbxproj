@@ -13,12 +13,15 @@
 		7A07B0FA299D05200063839C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A07B0F9299D05200063839C /* MapViewController.swift */; };
 		7A07B0FC299D05370063839C /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A07B0FB299D05370063839C /* FavoriteViewController.swift */; };
 		7A07B0FE299D05400063839C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A07B0FD299D05400063839C /* ProfileViewController.swift */; };
+		7A07B100299D125E0063839C /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A07B0FF299D125E0063839C /* DetailNewsViewController.swift */; };
 		7A1E702E299BB5AA00C05E3C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1E702C299BB5AA00C05E3C /* RegisterViewController.swift */; };
 		7A1E702F299BB5AA00C05E3C /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A1E702D299BB5AA00C05E3C /* RegisterViewController.xib */; };
 		7A1E7032299BB62700C05E3C /* AuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A1E7031299BB62700C05E3C /* AuthViewController.xib */; };
 		7A1E7035299BBF8600C05E3C /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1E7033299BBF8600C05E3C /* ResetPasswordViewController.swift */; };
 		7A1E7036299BBF8600C05E3C /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A1E7034299BBF8600C05E3C /* ResetPasswordViewController.xib */; };
 		7A1E703C299C139800C05E3C /* UITextField+TextInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1E703B299C139800C05E3C /* UITextField+TextInsets.swift */; };
+		7A209BDE299D43DF0017F383 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A209BDC299D43DF0017F383 /* NewsTableViewCell.swift */; };
+		7A209BDF299D43DF0017F383 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A209BDD299D43DF0017F383 /* NewsTableViewCell.xib */; };
 		7AF77B46299BA1C10099A2E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF77B45299BA1C10099A2E8 /* AppDelegate.swift */; };
 		7AF77B48299BA1C10099A2E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF77B47299BA1C10099A2E8 /* SceneDelegate.swift */; };
 		7AF77B4A299BA1C10099A2E8 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF77B49299BA1C10099A2E8 /* AuthViewController.swift */; };
@@ -33,12 +36,15 @@
 		7A07B0F9299D05200063839C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7A07B0FB299D05370063839C /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		7A07B0FD299D05400063839C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		7A07B0FF299D125E0063839C /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
 		7A1E702C299BB5AA00C05E3C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		7A1E702D299BB5AA00C05E3C /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		7A1E7031299BB62700C05E3C /* AuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthViewController.xib; sourceTree = "<group>"; };
 		7A1E7033299BBF8600C05E3C /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		7A1E7034299BBF8600C05E3C /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
 		7A1E703B299C139800C05E3C /* UITextField+TextInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+TextInsets.swift"; sourceTree = "<group>"; };
+		7A209BDC299D43DF0017F383 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		7A209BDD299D43DF0017F383 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		7AF77B42299BA1C10099A2E8 /* MyNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AF77B45299BA1C10099A2E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AF77B47299BA1C10099A2E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,10 +139,10 @@
 			isa = PBXGroup;
 			children = (
 				7A07B0EF299CDC070063839C /* Main.storyboard */,
-				7A07B0F7299CDD070063839C /* NewsViewController.swift */,
-				7A07B0F9299D05200063839C /* MapViewController.swift */,
-				7A07B0FB299D05370063839C /* FavoriteViewController.swift */,
-				7A07B0FD299D05400063839C /* ProfileViewController.swift */,
+				7A209BD4299D41D30017F383 /* News */,
+				7A209BD5299D41D80017F383 /* Map */,
+				7A209BD6299D41DC0017F383 /* Favorite */,
+				7A209BD7299D41E30017F383 /* Profile */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -147,6 +153,41 @@
 				7A1E703B299C139800C05E3C /* UITextField+TextInsets.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7A209BD4299D41D30017F383 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				7A07B0F7299CDD070063839C /* NewsViewController.swift */,
+				7A209BDC299D43DF0017F383 /* NewsTableViewCell.swift */,
+				7A209BDD299D43DF0017F383 /* NewsTableViewCell.xib */,
+				7A07B0FF299D125E0063839C /* DetailNewsViewController.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		7A209BD5299D41D80017F383 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				7A07B0F9299D05200063839C /* MapViewController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		7A209BD6299D41DC0017F383 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				7A07B0FB299D05370063839C /* FavoriteViewController.swift */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		7A209BD7299D41E30017F383 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7A07B0FD299D05400063839C /* ProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		7AF77B39299BA1C10099A2E8 = {
@@ -241,6 +282,7 @@
 				7AF77B52299BA1C20099A2E8 /* LaunchScreen.storyboard in Resources */,
 				7AF77B4F299BA1C20099A2E8 /* Assets.xcassets in Resources */,
 				7A1E7032299BB62700C05E3C /* AuthViewController.xib in Resources */,
+				7A209BDF299D43DF0017F383 /* NewsTableViewCell.xib in Resources */,
 				7A07B0F0299CDC070063839C /* Main.storyboard in Resources */,
 				7A1E702F299BB5AA00C05E3C /* RegisterViewController.xib in Resources */,
 				7A1E7036299BBF8600C05E3C /* ResetPasswordViewController.xib in Resources */,
@@ -258,6 +300,8 @@
 				7AF77B46299BA1C10099A2E8 /* AppDelegate.swift in Sources */,
 				7AF77B48299BA1C10099A2E8 /* SceneDelegate.swift in Sources */,
 				7A1E702E299BB5AA00C05E3C /* RegisterViewController.swift in Sources */,
+				7A209BDE299D43DF0017F383 /* NewsTableViewCell.swift in Sources */,
+				7A07B100299D125E0063839C /* DetailNewsViewController.swift in Sources */,
 				7A07B0FC299D05370063839C /* FavoriteViewController.swift in Sources */,
 				7A07B0FA299D05200063839C /* MapViewController.swift in Sources */,
 				7A07B0FE299D05400063839C /* ProfileViewController.swift in Sources */,
