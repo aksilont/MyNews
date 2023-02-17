@@ -169,6 +169,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" tag="1" title="Карта" image="Map" id="CyJ-oU-hyh"/>
                     <navigationItem key="navigationItem" id="dO3-uy-HzX"/>
+                    <connections>
+                        <outlet property="mapView" destination="4DH-y8-6vT" id="nVs-M6-Adr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EEX-tb-k32" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

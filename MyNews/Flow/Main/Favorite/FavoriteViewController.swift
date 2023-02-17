@@ -10,8 +10,8 @@ import UIKit
 class FavoriteViewController: UIViewController {
     
     // MARK: - Properties
-    private let news: [News] = News.mockData().filter { $0.liked }
     private var collectionView: UICollectionView!
+    lazy private var news: [News] = News.mockData().filter { $0.liked }
     
     // MARK: - Life Cycle
     
