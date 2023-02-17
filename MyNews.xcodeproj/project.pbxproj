@@ -29,6 +29,10 @@
 		7AAF9F24299E9FAB0048F2F5 /* Date+SimpleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAF9F23299E9FAB0048F2F5 /* Date+SimpleFormat.swift */; };
 		7AAF9F26299EA52E0048F2F5 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAF9F25299EA52E0048F2F5 /* FavoriteCollectionViewCell.swift */; };
 		7AD7B5C629A00A1900A98528 /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7B5C529A00A1900A98528 /* MapService.swift */; };
+		7AD7B5C829A01C6A00A98528 /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7B5C729A01C6A00A98528 /* AuthServiceProtocol.swift */; };
+		7AD7B5CA29A01D1A00A98528 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7B5C929A01D1A00A98528 /* User.swift */; };
+		7AD7B5CC29A0216300A98528 /* SimpleAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7B5CB29A0216300A98528 /* SimpleAuthService.swift */; };
+		7AD7B5CE29A0219C00A98528 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7B5CD29A0219C00A98528 /* KeychainService.swift */; };
 		7AF77B46299BA1C10099A2E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF77B45299BA1C10099A2E8 /* AppDelegate.swift */; };
 		7AF77B48299BA1C10099A2E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF77B47299BA1C10099A2E8 /* SceneDelegate.swift */; };
 		7AF77B4A299BA1C10099A2E8 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF77B49299BA1C10099A2E8 /* AuthViewController.swift */; };
@@ -59,6 +63,10 @@
 		7AAF9F23299E9FAB0048F2F5 /* Date+SimpleFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+SimpleFormat.swift"; sourceTree = "<group>"; };
 		7AAF9F25299EA52E0048F2F5 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		7AD7B5C529A00A1900A98528 /* MapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
+		7AD7B5C729A01C6A00A98528 /* AuthServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceProtocol.swift; sourceTree = "<group>"; };
+		7AD7B5C929A01D1A00A98528 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7AD7B5CB29A0216300A98528 /* SimpleAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAuthService.swift; sourceTree = "<group>"; };
+		7AD7B5CD29A0219C00A98528 /* KeychainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		7AF77B42299BA1C10099A2E8 /* MyNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AF77B45299BA1C10099A2E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AF77B47299BA1C10099A2E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +91,9 @@
 			isa = PBXGroup;
 			children = (
 				7AD7B5C529A00A1900A98528 /* MapService.swift */,
+				7AD7B5C729A01C6A00A98528 /* AuthServiceProtocol.swift */,
+				7AD7B5CB29A0216300A98528 /* SimpleAuthService.swift */,
+				7AD7B5CD29A0219C00A98528 /* KeychainService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -108,6 +119,7 @@
 		7A1E7028299BA5C300C05E3C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7AD7B5C929A01D1A00A98528 /* User.swift */,
 				7AAF9F1E299E225D0048F2F5 /* News.swift */,
 				7A53D6CD299F762800F9A80E /* Place.swift */,
 			);
@@ -330,10 +342,14 @@
 				7AF77B48299BA1C10099A2E8 /* SceneDelegate.swift in Sources */,
 				7A1E702E299BB5AA00C05E3C /* RegisterViewController.swift in Sources */,
 				7AAF9F1F299E225D0048F2F5 /* News.swift in Sources */,
+				7AD7B5CE29A0219C00A98528 /* KeychainService.swift in Sources */,
 				7A209BDE299D43DF0017F383 /* NewsTableViewCell.swift in Sources */,
+				7AD7B5C829A01C6A00A98528 /* AuthServiceProtocol.swift in Sources */,
 				7A07B100299D125E0063839C /* DetailNewsViewController.swift in Sources */,
 				7AAF9F26299EA52E0048F2F5 /* FavoriteCollectionViewCell.swift in Sources */,
+				7AD7B5CC29A0216300A98528 /* SimpleAuthService.swift in Sources */,
 				7A07B0FC299D05370063839C /* FavoriteViewController.swift in Sources */,
+				7AD7B5CA29A01D1A00A98528 /* User.swift in Sources */,
 				7A07B0FA299D05200063839C /* MapViewController.swift in Sources */,
 				7AD7B5C629A00A1900A98528 /* MapService.swift in Sources */,
 				7A07B0FE299D05400063839C /* ProfileViewController.swift in Sources */,

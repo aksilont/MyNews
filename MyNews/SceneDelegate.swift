@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let nextVC = AuthViewController(
             nibName: String(describing: AuthViewController.self),
             bundle: nil)
+        nextVC.authService = SimpleAuthService()
         let navigationVC = UINavigationController(rootViewController: nextVC)
         navigationVC.navigationBar.prefersLargeTitles = true
         

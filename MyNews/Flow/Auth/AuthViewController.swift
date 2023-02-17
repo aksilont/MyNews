@@ -16,6 +16,8 @@ class AuthViewController: UIViewController {
     @IBOutlet weak var enterButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     
+    var authService: AuthServiceProtocol?
+    
     // MARK: - Lyfe Cycle
     
     override func viewDidLoad() {
@@ -50,10 +52,37 @@ class AuthViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction private func enterDidTap(_ sender: UIButton) {
-        //TODO: Вход в приложение
-        let nextVC = UIStoryboard(name: "Main", bundle: nil)
-            .instantiateViewController(withIdentifier: "MainTabBarController")
-        Coordinator.shared.goTo(nextVC, useNavigationController: false)
+        guard let authService = authService else {
+            let alert = UIAlertController(title: "Ошибка",
+                                          message: "Не указан способ авторизации",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
+            return
+        }
+        
+        guard let email = emailTextField.text, !email.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty
+        else {
+            let alert = UIAlertController(title: "Ошибка",
+                                          message: "Запоните пустые поля",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
+            return
+        }
+        
+        if authService.check(email: email, password: password) {
+            let nextVC = UIStoryboard(name: "Main", bundle: nil)
+                .instantiateViewController(withIdentifier: "MainTabBarController")
+            Coordinator.shared.goTo(nextVC, useNavigationController: false)
+        } else {
+            let alert = UIAlertController(title: "Ошибка",
+                                          message: "Указан неправильный логин или папроль",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
+        }
     }
     
     @IBAction private func registerDidTap(_ sender: UIButton) {
