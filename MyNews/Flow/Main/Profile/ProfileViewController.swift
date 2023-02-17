@@ -34,9 +34,22 @@ class ProfileViewController: UIViewController {
         passwordTextField.textInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
         passwordTextField.layer.cornerRadius = 20
         passwordTextField.clipsToBounds = true
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(viewDidTap))
+        view.addGestureRecognizer(gesture)
     }
     
+    @objc private func viewDidTap(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    // MARK: - IBActions
+    
     @IBAction func exitDidTap(_ sender: UIButton) {
+        let nextVC = AuthViewController(
+            nibName: String(describing: AuthViewController.self),
+            bundle: nil)
         
+        Coordinator.shared.goTo(nextVC)
     }
 }

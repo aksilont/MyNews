@@ -10,6 +10,7 @@ import UIKit
 class FavoriteViewController: UIViewController {
     
     // MARK: - Properties
+    
     private var collectionView: UICollectionView!
     lazy private var news: [News] = News.mockData().filter { $0.liked }
     
@@ -54,9 +55,7 @@ class FavoriteViewController: UIViewController {
     
 }
 
-
-extension FavoriteViewController: UICollectionViewDelegate {
-}
+// MARK: - UICollectionViewDataSource
 
 extension FavoriteViewController: UICollectionViewDataSource {
     
@@ -75,6 +74,8 @@ extension FavoriteViewController: UICollectionViewDataSource {
     }
     
 }
+
+// MARK: - UICollectionViewDelegateFlowLayout
 
 extension FavoriteViewController: UICollectionViewDelegateFlowLayout {
     
@@ -102,3 +103,7 @@ extension FavoriteViewController: UICollectionViewDelegateFlowLayout {
     }
     
 }
+
+// MARK: - UICollectionViewDelegate
+
+extension FavoriteViewController: UICollectionViewDelegate {}

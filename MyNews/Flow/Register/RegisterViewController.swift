@@ -37,6 +37,13 @@ class RegisterViewController: UIViewController {
         passwordTextField.clipsToBounds = true
         
         enterButton.layer.cornerRadius = 20
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(viewDidTap))
+        view.addGestureRecognizer(gesture)
+    }
+    
+    @objc private func viewDidTap(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     // MARK: - IBActions

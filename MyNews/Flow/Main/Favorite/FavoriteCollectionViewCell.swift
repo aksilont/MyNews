@@ -9,7 +9,7 @@ import UIKit
 
 class FavoriteCollectionViewCell: UICollectionViewCell {
     
-    // MARK: - Properties
+    // MARK: - Views
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
