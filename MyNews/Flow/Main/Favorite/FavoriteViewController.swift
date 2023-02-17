@@ -10,7 +10,7 @@ import UIKit
 class FavoriteViewController: UIViewController {
     
     // MARK: - Properties
-    private let news: [News] = News.mockData()
+    private let news: [News] = News.mockData().filter { $0.liked }
     private var collectionView: UICollectionView!
     
     // MARK: - Life Cycle
@@ -34,7 +34,7 @@ class FavoriteViewController: UIViewController {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(FavoriteCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        collectionView.contentInset = UIEdgeInsets(top: 5, left: 15, bottom: 5, right: 15)
+        collectionView.contentInset = UIEdgeInsets(top: 5, left: 15, bottom: 15, right: 15)
                 
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -52,6 +52,7 @@ class FavoriteViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
         ])
     }
+    
 }
 
 
@@ -82,14 +83,23 @@ extension FavoriteViewController: UICollectionViewDelegateFlowLayout {
         let width = (collectionView.bounds.width - 15 * 2 - 18) / 2
         return CGSize(width: width, height: width * 1.2)
     }
-
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 5, left: 24, bottom: 5, right: 24)
-//    }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 24
+        return 18
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let currentNews = news[indexPath.row]
+        
+        guard let detailNewsVC = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateViewController(withIdentifier: "DetailNewsViewController") as? DetailNewsViewController
+        else { return }
+        detailNewsVC.currentNews = currentNews
+        
+        navigationItem.backButtonTitle = ""
+        navigationController?.pushViewController(detailNewsVC, animated: true)
+    }
+    
 }

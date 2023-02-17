@@ -24,6 +24,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
         label.font = UIFont.systemFont(ofSize: 13)
         return label
     }()
+    
     private let likeButton: LikeButton = {
         let button = LikeButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -31,6 +32,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
         button.widthAnchor.constraint(equalToConstant: 40).isActive = true
         return button
     }()
+    
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -102,4 +104,5 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
         likeButton.liked = news.liked
         titleLabel.text = news.title
     }
+    
 }

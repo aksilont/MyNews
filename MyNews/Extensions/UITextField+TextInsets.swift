@@ -24,4 +24,5 @@ class InputTextField: UITextField {
     override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         bounds.inset(by: textInsets)
     }
+    
 }

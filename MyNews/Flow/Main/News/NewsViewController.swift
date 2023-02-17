@@ -42,6 +42,17 @@ class NewsViewController: UIViewController {
     
     private func setupUI() {
         navigationItem.backButtonTitle = ""
+        
+        guard let tabBar = tabBarController?.tabBar else { return }
+        
+        let appearance = tabBar.standardAppearance
+        appearance.shadowImage = nil
+        appearance.shadowColor = nil
+        tabBar.standardAppearance = appearance;
+        
+        let separator = BarSeparator()
+        tabBar.addSubview(separator)
+        NSLayoutConstraint.activate(separator.layoutConstraints(for: tabBar))
     }
 
 }

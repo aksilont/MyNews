@@ -47,4 +47,5 @@ class LikeButton: UIButton {
         guard let likeAction = likeAction else { return }
         likeAction(liked)
     }
+    
 }

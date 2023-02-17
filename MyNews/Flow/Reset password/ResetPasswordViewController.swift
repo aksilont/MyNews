@@ -40,4 +40,5 @@ class ResetPasswordViewController: UIViewController {
     @IBAction private func resetDidTap(_ sender: UIButton) {
         navigationController?.popToRootViewController(animated: true)
     }
+    
 }
