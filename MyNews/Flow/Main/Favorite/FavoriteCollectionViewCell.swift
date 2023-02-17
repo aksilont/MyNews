@@ -52,14 +52,12 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupUI()
         setupConstraints()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
         setupUI()
         setupConstraints()
     }
