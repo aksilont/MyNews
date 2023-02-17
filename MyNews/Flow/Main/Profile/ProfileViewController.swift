@@ -46,10 +46,23 @@ class ProfileViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func exitDidTap(_ sender: UIButton) {
-        let nextVC = AuthViewController(
-            nibName: String(describing: AuthViewController.self),
-            bundle: nil)
+        let handerAlert: (UIAlertAction) -> () = { _ in
+            let nextVC = AuthViewController(
+                nibName: String(describing: AuthViewController.self),
+                bundle: nil)
+            
+            Coordinator.shared.goTo(nextVC)
+        }
         
-        Coordinator.shared.goTo(nextVC)
+        let alert = UIAlertController(title: "Выход",
+                                      message: "Вы уверены что хотите выйти из аккаунта",
+                                      preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Выход",
+                                      style: .destructive,
+                                      handler: handerAlert))
+
+        present(alert, animated: true)
     }
 }
