@@ -17,10 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         
-        let nextVC = AuthViewController(
-            nibName: String(describing: AuthViewController.self),
-            bundle: nil)
-        nextVC.authService = SimpleAuthService()
+        let nextVC = AuthViewController.getFromXIB()
         let navigationVC = UINavigationController(rootViewController: nextVC)
         navigationVC.navigationBar.prefersLargeTitles = true
         

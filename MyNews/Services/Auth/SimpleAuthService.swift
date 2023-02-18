@@ -12,7 +12,7 @@ class SimpleAuthService: AuthServiceProtocol {
         if email == "test@mail.ru",
            password == "123456" {
             return true
-        } else { return false }
+        } else { return true }
     }
     
     func create(email: String, password: String) -> User {

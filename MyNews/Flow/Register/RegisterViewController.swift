@@ -49,15 +49,22 @@ class RegisterViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction private func enterDidTap(_ sender: UIButton) {
-        //TODO: Вход в приложение с новым логином
+        guard let email = emailTextField.text, !email.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty
+        else {
+            let alert = UIAlertController(title: "Ошибка",
+                                          message: "Запоните пустые поля",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
+            return
+        }
+        let nextVC = UIViewController.getFromStoryboard(withIdentifier: "MainTabBarController")
+        Coordinator.shared.goTo(nextVC, useNavigationController: false)
     }
     
     @IBAction private func loginDidTap(_ sender: UIButton) {
-        let nextVC = AuthViewController(
-            nibName: String(describing: AuthViewController.self),
-            bundle: nil)
-        
-        Coordinator.shared.goTo(nextVC)
+        navigationController?.popViewController(animated: true)
     }
     
 }

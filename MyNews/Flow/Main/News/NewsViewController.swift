@@ -23,8 +23,7 @@ class NewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        tableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil),
-                           forCellReuseIdentifier: "NewsCell")
+        tableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
     }
     
     // MARK: - Navigation

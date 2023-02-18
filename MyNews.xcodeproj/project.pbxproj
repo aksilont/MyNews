@@ -22,6 +22,7 @@
 		7A1E703C299C139800C05E3C /* UITextField+TextInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1E703B299C139800C05E3C /* UITextField+TextInsets.swift */; };
 		7A209BDE299D43DF0017F383 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A209BDC299D43DF0017F383 /* NewsTableViewCell.swift */; };
 		7A209BDF299D43DF0017F383 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A209BDD299D43DF0017F383 /* NewsTableViewCell.xib */; };
+		7A4F700029A0BD7800594C4B /* UIViewController+GetFromStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4F6FFF29A0BD7800594C4B /* UIViewController+GetFromStoryboard.swift */; };
 		7A53D6C8299F701800F9A80E /* BarSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A53D6C7299F701800F9A80E /* BarSeparator.swift */; };
 		7A53D6CE299F762800F9A80E /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A53D6CD299F762800F9A80E /* Place.swift */; };
 		7AAF9F1F299E225D0048F2F5 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAF9F1E299E225D0048F2F5 /* News.swift */; };
@@ -56,6 +57,7 @@
 		7A1E703B299C139800C05E3C /* UITextField+TextInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+TextInsets.swift"; sourceTree = "<group>"; };
 		7A209BDC299D43DF0017F383 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		7A209BDD299D43DF0017F383 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
+		7A4F6FFF29A0BD7800594C4B /* UIViewController+GetFromStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+GetFromStoryboard.swift"; sourceTree = "<group>"; };
 		7A53D6C7299F701800F9A80E /* BarSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarSeparator.swift; sourceTree = "<group>"; };
 		7A53D6CD299F762800F9A80E /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		7AAF9F1E299E225D0048F2F5 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
@@ -90,10 +92,9 @@
 		7A07B0EA299CAC990063839C /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				7AD7B5C529A00A1900A98528 /* MapService.swift */,
-				7AD7B5C729A01C6A00A98528 /* AuthServiceProtocol.swift */,
-				7AD7B5CB29A0216300A98528 /* SimpleAuthService.swift */,
-				7AD7B5CD29A0219C00A98528 /* KeychainService.swift */,
+				7A4F700129A0D6BA00594C4B /* Map */,
+				7A4F700229A0D6C100594C4B /* Auth */,
+				7A4F700329A0D6C800594C4B /* Storage */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -181,6 +182,7 @@
 			children = (
 				7A1E703B299C139800C05E3C /* UITextField+TextInsets.swift */,
 				7AAF9F23299E9FAB0048F2F5 /* Date+SimpleFormat.swift */,
+				7A4F6FFF29A0BD7800594C4B /* UIViewController+GetFromStoryboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -219,6 +221,31 @@
 				7A07B0FD299D05400063839C /* ProfileViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		7A4F700129A0D6BA00594C4B /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				7AD7B5C529A00A1900A98528 /* MapService.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		7A4F700229A0D6C100594C4B /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				7AD7B5C729A01C6A00A98528 /* AuthServiceProtocol.swift */,
+				7AD7B5CB29A0216300A98528 /* SimpleAuthService.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		7A4F700329A0D6C800594C4B /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				7AD7B5CD29A0219C00A98528 /* KeychainService.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		7AAF9F20299E53A20048F2F5 /* Controls */ = {
@@ -346,6 +373,7 @@
 				7A209BDE299D43DF0017F383 /* NewsTableViewCell.swift in Sources */,
 				7AD7B5C829A01C6A00A98528 /* AuthServiceProtocol.swift in Sources */,
 				7A07B100299D125E0063839C /* DetailNewsViewController.swift in Sources */,
+				7A4F700029A0BD7800594C4B /* UIViewController+GetFromStoryboard.swift in Sources */,
 				7AAF9F26299EA52E0048F2F5 /* FavoriteCollectionViewCell.swift in Sources */,
 				7AD7B5CC29A0216300A98528 /* SimpleAuthService.swift in Sources */,
 				7A07B0FC299D05370063839C /* FavoriteViewController.swift in Sources */,

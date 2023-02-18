@@ -63,7 +63,8 @@ extension FavoriteViewController: UICollectionViewDataSource {
         news.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "cell",
             for: indexPath) as? FavoriteCollectionViewCell else {
@@ -79,7 +80,9 @@ extension FavoriteViewController: UICollectionViewDataSource {
 
 extension FavoriteViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.bounds.width - 15 * 2 - 18) / 2
         return CGSize(width: width, height: width * 1.2)
     }
@@ -93,9 +96,7 @@ extension FavoriteViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let currentNews = news[indexPath.row]
         
-        guard let detailNewsVC = UIStoryboard(name: "Main", bundle: nil)
-            .instantiateViewController(withIdentifier: "DetailNewsViewController") as? DetailNewsViewController
-        else { return }
+        let detailNewsVC = DetailNewsViewController.getFromStoryboard()
         detailNewsVC.currentNews = currentNews
         
         navigationItem.backButtonTitle = ""

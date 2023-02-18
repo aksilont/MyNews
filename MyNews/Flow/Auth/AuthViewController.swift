@@ -16,7 +16,7 @@ class AuthViewController: UIViewController {
     @IBOutlet weak var enterButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     
-    var authService: AuthServiceProtocol?
+    var authService: AuthServiceProtocol = SimpleAuthService()
     
     // MARK: - Lyfe Cycle
     
@@ -52,15 +52,6 @@ class AuthViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction private func enterDidTap(_ sender: UIButton) {
-        guard let authService = authService else {
-            let alert = UIAlertController(title: "Ошибка",
-                                          message: "Не указан способ авторизации",
-                                          preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            present(alert, animated: true)
-            return
-        }
-        
         guard let email = emailTextField.text, !email.isEmpty,
               let password = passwordTextField.text, !password.isEmpty
         else {
@@ -73,8 +64,7 @@ class AuthViewController: UIViewController {
         }
         
         if authService.check(email: email, password: password) {
-            let nextVC = UIStoryboard(name: "Main", bundle: nil)
-                .instantiateViewController(withIdentifier: "MainTabBarController")
+            let nextVC = UIViewController.getFromStoryboard(withIdentifier: "MainTabBarController")
             Coordinator.shared.goTo(nextVC, useNavigationController: false)
         } else {
             let alert = UIAlertController(title: "Ошибка",
@@ -86,17 +76,13 @@ class AuthViewController: UIViewController {
     }
     
     @IBAction private func registerDidTap(_ sender: UIButton) {
-        let nextVC = RegisterViewController(
-            nibName: String(describing: RegisterViewController.self),
-            bundle: nil)
-        Coordinator.shared.goTo(nextVC)
+        let nextVC = RegisterViewController.getFromXIB()
+        nextVC.navigationItem.hidesBackButton = true
+        navigationController?.pushViewController(nextVC, animated: true)
     }
     
     @IBAction private func resetPasswordDidTap(_ sender: UIButton) {
-        let nextVC = ResetPasswordViewController(
-            nibName: String(describing: ResetPasswordViewController.self),
-            bundle: nil)
-        
+        let nextVC = ResetPasswordViewController.getFromXIB()
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
