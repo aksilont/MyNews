@@ -12,7 +12,11 @@ class FavoriteViewController: UIViewController {
     // MARK: - Properties
     
     private var collectionView: UICollectionView!
-    lazy private var news: [News] = News.mockData().filter { $0.liked }
+    lazy private var news: [News] = News.mockData().filter { $0.liked } {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     // MARK: - Life Cycle
     
@@ -68,7 +72,8 @@ extension FavoriteViewController: UICollectionViewDataSource {
             for: indexPath) as? FavoriteCollectionViewCell else {
             fatalError("Wrong cell")
         }
-        cell.update(news: news[indexPath.row])
+        cell.delegate = self
+        cell.update(news: news[indexPath.row], index: indexPath.row)
         return cell
     }
     
@@ -106,3 +111,11 @@ extension FavoriteViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - UICollectionViewDelegate
 
 extension FavoriteViewController: UICollectionViewDelegate {}
+
+// MARK: - UICollectionViewDelegate
+
+extension FavoriteViewController: FavoriteCellChangeDelegate {
+    func delete(index: Int) {
+        news.remove(at: index)
+    }
+}

@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol FavoriteCellChangeDelegate: AnyObject {
+    func delete(index: Int)
+}
+
 class FavoriteCollectionViewCell: UICollectionViewCell {
+    
+    var delegate: FavoriteCellChangeDelegate?
+    private var currentIndex: Int?
     
     // MARK: - Views
     
@@ -62,13 +69,15 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
         setupConstraints()
     }
     
-    // MARK: - Methods
+    // MARK: - Private Methods
     
     private func setupUI() {
         contentView.backgroundColor = .systemBackground
         contentView.layer.cornerRadius = 22
         contentView.layer.cornerCurve = .continuous
         contentView.layer.masksToBounds = true
+        
+        likeButton.addTarget(self, action: #selector(likedDidTap), for: .touchUpInside)
         
         stackView.addArrangedSubview(dateLabel)
         stackView.addArrangedSubview(likeButton)
@@ -96,7 +105,15 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    func update(news: News) {
+    @objc private func likedDidTap(_ sender: UIButton) {
+        guard let delegate = delegate, let currentIndex = currentIndex else { return }
+        delegate.delete(index: currentIndex)
+    }
+    
+    // MARK: - Public Methods
+    
+    func update(news: News, index: Int) {
+        currentIndex = index
         imageView.image = news.image
         dateLabel.text = news.date.simpleFormat()
         likeButton.liked = news.liked
