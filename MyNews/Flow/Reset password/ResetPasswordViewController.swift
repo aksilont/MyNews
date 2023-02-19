@@ -46,11 +46,7 @@ class ResetPasswordViewController: UIViewController {
     @IBAction private func resetDidTap(_ sender: UIButton) {
         guard let email = emailTextField.text, !email.isEmpty
         else {
-            let alert = UIAlertController(title: "Ошибка",
-                                          message: "Запоните пустые поля",
-                                          preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            present(alert, animated: true)
+            self.showAlertOk(title: "Ошибка", message: "Запоните пустые поля")
             return
         }
         

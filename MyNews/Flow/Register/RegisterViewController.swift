@@ -16,6 +16,10 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var enterButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     
+    // MARK: - Properties
+    
+    var authService: AuthServiceProtocol = SimpleAuthService()
+    
     // MARK: - Lyfe Cycle
     
     override func viewDidLoad() {
@@ -52,15 +56,23 @@ class RegisterViewController: UIViewController {
         guard let email = emailTextField.text, !email.isEmpty,
               let password = passwordTextField.text, !password.isEmpty
         else {
-            let alert = UIAlertController(title: "Ошибка",
-                                          message: "Запоните пустые поля",
-                                          preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            present(alert, animated: true)
+            self.showAlertOk(title: "Ошибка", message: "Запоните пустые поля")
             return
         }
-        let nextVC = UIViewController.getFromStoryboard(withIdentifier: "MainTabBarController")
-        Coordinator.shared.goTo(nextVC, useNavigationController: false)
+        
+        authService.register(email: email, password: password) { [weak self] result in
+            switch result {
+            case .success(let user):
+                if let userData = try? user.getData() {
+                    KeychainService.standart.set(userData, forKey: "UserProfile")
+                }
+                let nextVC = UIViewController.getFromStoryboard(withIdentifier: "MainTabBarController")
+                Coordinator.shared.goTo(nextVC, useNavigationController: false)
+            case .failure(let error):
+                self?.showAlertOk(title: "Ошибка", message: error.localizedDescription)
+                return
+            }
+        }
     }
     
     @IBAction private func loginDidTap(_ sender: UIButton) {

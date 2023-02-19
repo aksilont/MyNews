@@ -38,7 +38,7 @@ class MapService: NSObject {
         region.span.latitudeDelta *= 1.5
         region.span.longitudeDelta *= 1.5
         lastRegion = region
-        mapView.region = region
+        focusLastRegion()
     }
     
     func focusLastRegion() {

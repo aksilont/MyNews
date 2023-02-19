@@ -16,6 +16,8 @@ class AuthViewController: UIViewController {
     @IBOutlet weak var enterButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     
+    // MARK: - Properties
+    
     var authService: AuthServiceProtocol = SimpleAuthService()
     
     // MARK: - Lyfe Cycle
@@ -55,29 +57,28 @@ class AuthViewController: UIViewController {
         guard let email = emailTextField.text, !email.isEmpty,
               let password = passwordTextField.text, !password.isEmpty
         else {
-            let alert = UIAlertController(title: "Ошибка",
-                                          message: "Запоните пустые поля",
-                                          preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            present(alert, animated: true)
+            self.showAlertOk(title: "Ошибка", message: "Запоните пустые поля")
             return
         }
         
-        if authService.check(email: email, password: password) {
-            let nextVC = UIViewController.getFromStoryboard(withIdentifier: "MainTabBarController")
-            Coordinator.shared.goTo(nextVC, useNavigationController: false)
-        } else {
-            let alert = UIAlertController(title: "Ошибка",
-                                          message: "Указан неправильный логин или папроль",
-                                          preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            present(alert, animated: true)
+        authService.login(email: email, password: password) { [weak self] result in
+            switch result {
+            case .success(let user):
+                if let userData = try? user.getData() {
+                    KeychainService.standart.set(userData, forKey: "UserProfile")
+                }
+                let nextVC = UIViewController.getFromStoryboard(withIdentifier: "MainTabBarController")
+                Coordinator.shared.goTo(nextVC, useNavigationController: false)
+            case .failure(_):
+                self?.showAlertOk(title: "Ошибка", message: "Указан неправильный логин или папроль")
+            }
         }
     }
     
     @IBAction private func registerDidTap(_ sender: UIButton) {
         let nextVC = RegisterViewController.getFromXIB()
         nextVC.navigationItem.hidesBackButton = true
+        nextVC.authService = FirebaseAuthService()
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
