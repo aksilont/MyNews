@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol AuthServiceProtocol {
-    func check(email: String, password: String) -> Bool
-    func create(email: String, password: String) -> User
+protocol AuthServiceProtocol {  
+    func login(email: String, password: String, completion: @escaping(Result<UserProtocol, Error>) -> Void)
+    func register(email: String, password: String, completion: @escaping(Result<UserProtocol, Error>) -> Void)
 }

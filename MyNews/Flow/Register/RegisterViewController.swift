@@ -16,6 +16,10 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var enterButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     
+    // MARK: - Properties
+    
+    var authService: AuthServiceProtocol = SimpleAuthService()
+    
     // MARK: - Lyfe Cycle
     
     override func viewDidLoad() {
@@ -59,8 +63,17 @@ class RegisterViewController: UIViewController {
             present(alert, animated: true)
             return
         }
-        let nextVC = UIViewController.getFromStoryboard(withIdentifier: "MainTabBarController")
-        Coordinator.shared.goTo(nextVC, useNavigationController: false)
+        
+        authService.register(email: email, password: password) { [weak self] result in
+            switch result {
+            case .success(_):
+                let nextVC = UIViewController.getFromStoryboard(withIdentifier: "MainTabBarController")
+                Coordinator.shared.goTo(nextVC, useNavigationController: false)
+            case .failure(let error):
+                self?.showAlertOk(title: "Ошибка", message: error.localizedDescription)
+                return
+            }
+        }
     }
     
     @IBAction private func loginDidTap(_ sender: UIButton) {

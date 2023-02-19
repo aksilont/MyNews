@@ -8,14 +8,17 @@
 import Foundation
 
 class SimpleAuthService: AuthServiceProtocol {
-    func check(email: String, password: String) -> Bool {
-        if email == "test@mail.ru",
-           password == "123456" {
-            return true
-        } else { return true }
+    
+    func login(email: String, password: String, completion: @escaping (Result<UserProtocol, Error>) -> Void) {
+        if email == "test@mail.ru", password == "123456" {
+            completion(.success(UserProfile(email: email, password: password)))
+        } else {
+            completion(.failure(AuthError.invalidEmailPassword))
+        }
     }
     
-    func create(email: String, password: String) -> User {
-        User(email: email, password: password)
+    func register(email: String, password: String, completion: @escaping (Result<UserProtocol, Error>) -> Void) {
+        completion(.success(UserProfile(email: email, password: password)))
     }
+    
 }

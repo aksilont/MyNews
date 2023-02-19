@@ -22,7 +22,6 @@ class FavoriteViewController: UIViewController {
         setupConstraints()
     }
     
-    
     // MARK: - Methods
     
     private func setupView() {
@@ -35,7 +34,6 @@ class FavoriteViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(FavoriteCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.contentInset = UIEdgeInsets(top: 5, left: 15, bottom: 15, right: 15)
-                
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear

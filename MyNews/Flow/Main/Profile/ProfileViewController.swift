@@ -50,16 +50,6 @@ class ProfileViewController: UIViewController {
             let nextVC = AuthViewController.getFromXIB()
             Coordinator.shared.goTo(nextVC)
         }
-        
-        let alert = UIAlertController(title: "Выход",
-                                      message: "Вы уверены что хотите выйти из аккаунта",
-                                      preferredStyle: .alert)
-
-        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel))
-        alert.addAction(UIAlertAction(title: "Выход",
-                                      style: .destructive,
-                                      handler: handerAlert))
-
-        present(alert, animated: true)
+        self.showAlertExit(title: "Выход", message: "Вы уверены что хотите выйти из аккаунта", handler: handerAlert)
     }
 }

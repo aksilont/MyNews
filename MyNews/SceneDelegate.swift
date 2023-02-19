@@ -18,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         let nextVC = AuthViewController.getFromXIB()
+        nextVC.authService = FirebaseAuthService()
         let navigationVC = UINavigationController(rootViewController: nextVC)
         navigationVC.navigationBar.prefersLargeTitles = true
         
