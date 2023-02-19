@@ -18,12 +18,14 @@ extension UIViewController {
         self.present(alert, animated: true)
     }
     
-    func showAlertExit(title: String, message: String, handler: @escaping (UIAlertAction) -> ()) {
+    func showAlertExit(title: String, message: String, handler: @escaping () -> ()) {
         let alert = UIAlertController(title: title,
                                       message: message,
                                       preferredStyle: .alert)
         let actionCacel = UIAlertAction(title: "Отмена", style: .cancel)
-        let actionExit = UIAlertAction(title: "Выход", style: .destructive, handler: handler)
+        let actionExit = UIAlertAction(title: "Выход", style: .destructive) { _ in
+            handler()
+        }
         alert.addAction(actionCacel)
         alert.addAction(actionExit)
 

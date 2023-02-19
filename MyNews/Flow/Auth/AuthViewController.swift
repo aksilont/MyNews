@@ -67,11 +67,7 @@ class AuthViewController: UIViewController {
                 let nextVC = UIViewController.getFromStoryboard(withIdentifier: "MainTabBarController")
                 Coordinator.shared.goTo(nextVC, useNavigationController: false)
             case .failure(_):
-                let alert = UIAlertController(title: "Ошибка",
-                                              message: "Указан неправильный логин или папроль",
-                                              preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default))
-                self?.present(alert, animated: true)
+                self?.showAlertOk(title: "Ошибка", message: "Указан неправильный логин или папроль")
             }
         }
     }

@@ -46,7 +46,7 @@ class ProfileViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func exitDidTap(_ sender: UIButton) {
-        let handerAlert: (UIAlertAction) -> () = { _ in
+        let handerAlert: () -> () = {
             let nextVC = AuthViewController.getFromXIB()
             Coordinator.shared.goTo(nextVC)
         }

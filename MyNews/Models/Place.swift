@@ -19,7 +19,6 @@ struct Place: PointProtocol {
 }
 
 extension Place {
-    
     static func mockPlaces() -> [Place] {
         let center = CLLocationCoordinate2D(latitude: 55.753215, longitude: 37.622504)
         return (1...5)

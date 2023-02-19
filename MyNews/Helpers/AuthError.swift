@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AuthError {
+enum AuthError: Error {
     case notFilled
     case incorrectEmail
     case invalidEmailPassword
