@@ -7,11 +7,20 @@
 
 import Foundation
 
-protocol UserProtocol {
+protocol UserProtocol: Codable {
     var id: UUID { get set }
     var name: String { get set }
     var email: String { get set }
     var password: String { get set }
+    
+    func getData() throws -> Data?
+}
+
+extension UserProtocol {
+    func getData() throws -> Data? {
+        let encoder = JSONEncoder()
+        return try encoder.encode(self)
+    }
 }
 
 struct UserProfile: UserProtocol, Identifiable {

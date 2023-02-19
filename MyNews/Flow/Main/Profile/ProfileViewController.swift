@@ -20,6 +20,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        fillFields()
     }
 
     // MARK: - Methods
@@ -39,6 +40,17 @@ class ProfileViewController: UIViewController {
         view.addGestureRecognizer(gesture)
     }
     
+    private func fillFields() {
+        let decoder = JSONDecoder()
+        let data = KeychainService.standart.data(forKey: "UserProfile")
+        guard let data = data else { return }
+        
+        if let user = try? decoder.decode(UserProfile.self, from: data) {
+            emailTextField.text = user.email
+            passwordTextField.text = user.password
+        }
+    }
+    
     @objc private func viewDidTap(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
@@ -47,6 +59,7 @@ class ProfileViewController: UIViewController {
     
     @IBAction func exitDidTap(_ sender: UIButton) {
         let handerAlert: () -> () = {
+            KeychainService.standart.removeData(forKey: "UserProfile")
             let nextVC = AuthViewController.getFromXIB()
             Coordinator.shared.goTo(nextVC)
         }

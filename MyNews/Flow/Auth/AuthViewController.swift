@@ -61,9 +61,12 @@ class AuthViewController: UIViewController {
             return
         }
         
-        authService.login(email: email, password: password) { [weak self] resutl in
-            switch resutl {
-            case .success(_):
+        authService.login(email: email, password: password) { [weak self] result in
+            switch result {
+            case .success(let user):
+                if let userData = try? user.getData() {
+                    KeychainService.standart.set(userData, forKey: "UserProfile")
+                }
                 let nextVC = UIViewController.getFromStoryboard(withIdentifier: "MainTabBarController")
                 Coordinator.shared.goTo(nextVC, useNavigationController: false)
             case .failure(_):
