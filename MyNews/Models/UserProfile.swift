@@ -12,6 +12,7 @@ protocol UserProtocol: Codable {
     var name: String { get set }
     var email: String { get set }
     var password: String { get set }
+    var imageRef: String { get set }
     
     func getData() throws -> Data?
 }
@@ -28,4 +29,5 @@ struct UserProfile: UserProtocol, Identifiable {
     var name: String = "user"
     var email: String
     var password: String
+    var imageRef: String = "ProfilePic"
 }

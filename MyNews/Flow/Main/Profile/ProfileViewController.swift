@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var emailTextField: InputTextField!
     @IBOutlet weak var passwordTextField: InputTextField!
     @IBOutlet weak var exitButton: UIButton!
+    @IBOutlet weak var profileImageView: UIImageView!
     
     // MARK: - Lyfe Cycle
     
@@ -48,6 +49,7 @@ class ProfileViewController: UIViewController {
         if let user = try? decoder.decode(UserProfile.self, from: data) {
             emailTextField.text = user.email
             passwordTextField.text = user.password
+            profileImageView.image = UIImage(named: user.imageRef)
         }
     }
     
