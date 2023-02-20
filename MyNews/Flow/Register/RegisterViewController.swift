@@ -59,6 +59,10 @@ class RegisterViewController: UIViewController {
             showAlertOk(title: "Ошибка", message: "Запоните пустые поля")
             return
         }
+        guard Validators.isSimpleEmail(email) else {
+            showAlertOk(title: "Ошибка", message: "Указан некорректный email")
+            return
+        }
         
         authService.register(email: email, password: password) { [weak self] result in
             switch result {

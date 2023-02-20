@@ -49,6 +49,10 @@ class ResetPasswordViewController: UIViewController {
             showAlertOk(title: "Ошибка", message: "Запоните пустые поля")
             return
         }
+        guard Validators.isSimpleEmail(email) else {
+            showAlertOk(title: "Ошибка", message: "Указан некорректный email")
+            return
+        }
         
         navigationController?.popToRootViewController(animated: true)
     }
