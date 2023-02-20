@@ -57,7 +57,7 @@ class AuthViewController: UIViewController {
         guard let email = emailTextField.text, !email.isEmpty,
               let password = passwordTextField.text, !password.isEmpty
         else {
-            self.showAlertOk(title: "Ошибка", message: "Запоните пустые поля")
+            showAlertOk(title: "Ошибка", message: "Запоните пустые поля")
             return
         }
         

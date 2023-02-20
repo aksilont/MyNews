@@ -63,7 +63,7 @@ class ProfileViewController: UIViewController {
             let nextVC = AuthViewController.getFromXIB()
             Coordinator.shared.goTo(nextVC)
         }
-        self.showAlertExit(title: "Выход", message: "Вы уверены что хотите выйти из аккаунта", handler: handerAlert)
+        showAlertExit(title: "Выход", message: "Вы уверены что хотите выйти из аккаунта", handler: handerAlert)
     }
     
     @IBAction func passwordEditingDidBegan(_ sender: UITextField) {
