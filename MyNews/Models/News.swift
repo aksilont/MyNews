@@ -7,7 +7,8 @@
 
 import UIKit
 
-struct News {
+struct News: Identifiable {
+    let id: UUID = UUID()
     let image: UIImage?
     let date: Date
     var liked: Bool

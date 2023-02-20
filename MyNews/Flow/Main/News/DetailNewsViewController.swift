@@ -45,5 +45,10 @@ class DetailNewsViewController: UIViewController {
         imageView.layer.cornerCurve = .continuous
         imageView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
+    
+    @IBAction private func likeDidTap(_ sender: UIButton) {
+        guard let indexNews = MockData.shared.mockNews.firstIndex(where: { $0.id == currentNews?.id }) else { return }
+        MockData.shared.mockNews[indexNews].liked.toggle()
+    }
 
 }

@@ -8,13 +8,15 @@
 import UIKit
 
 protocol FavoriteCellChangeDelegate: AnyObject {
-    func delete(index: Int)
+    func deleteFromFavorite(index: UUID)
 }
 
 class FavoriteCollectionViewCell: UICollectionViewCell {
     
+    // MARK: - Properties
+    
     var delegate: FavoriteCellChangeDelegate?
-    private var currentIndex: Int?
+    private var currentIndex: UUID?
     
     // MARK: - Views
     
@@ -107,17 +109,17 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
     
     @objc private func likedDidTap(_ sender: UIButton) {
         guard let delegate = delegate, let currentIndex = currentIndex else { return }
-        delegate.delete(index: currentIndex)
+        delegate.deleteFromFavorite(index: currentIndex)
     }
     
     // MARK: - Public Methods
     
-    func update(news: News, index: Int) {
-        currentIndex = index
-        imageView.image = news.image
-        dateLabel.text = news.date.simpleFormat()
-        likeButton.liked = news.liked
-        titleLabel.text = news.title
+    func configure(item: News) {
+        currentIndex = item.id
+        imageView.image = item.image
+        dateLabel.text = item.date.simpleFormat()
+        likeButton.liked = item.liked
+        titleLabel.text = item.title
     }
     
 }

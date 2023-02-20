@@ -12,10 +12,8 @@ class FavoriteViewController: UIViewController {
     // MARK: - Properties
     
     private var collectionView: UICollectionView!
-    lazy private var news: [News] = News.mockData().filter { $0.liked } {
-        didSet {
-            collectionView.reloadData()
-        }
+    private var dataNews:[News] = [] {
+        didSet { collectionView.reloadData() }
     }
     
     // MARK: - Life Cycle
@@ -24,6 +22,12 @@ class FavoriteViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupConstraints()
+        fetchNews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchNews()
     }
     
     // MARK: - Methods
@@ -55,6 +59,10 @@ class FavoriteViewController: UIViewController {
         ])
     }
     
+    private func fetchNews() {
+        dataNews = MockData.shared.mockNews.filter { $0.liked }
+    }
+    
 }
 
 // MARK: - UICollectionViewDataSource
@@ -62,7 +70,7 @@ class FavoriteViewController: UIViewController {
 extension FavoriteViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        news.count
+        dataNews.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -73,7 +81,7 @@ extension FavoriteViewController: UICollectionViewDataSource {
             fatalError("Wrong cell")
         }
         cell.delegate = self
-        cell.update(news: news[indexPath.row], index: indexPath.row)
+        cell.configure(item: dataNews[indexPath.row])
         return cell
     }
     
@@ -97,7 +105,7 @@ extension FavoriteViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let currentNews = news[indexPath.row]
+        let currentNews = dataNews[indexPath.row]
         
         let detailNewsVC = DetailNewsViewController.getFromStoryboard()
         detailNewsVC.currentNews = currentNews
@@ -115,7 +123,9 @@ extension FavoriteViewController: UICollectionViewDelegate {}
 // MARK: - UICollectionViewDelegate
 
 extension FavoriteViewController: FavoriteCellChangeDelegate {
-    func delete(index: Int) {
-        news.remove(at: index)
+    func deleteFromFavorite(index: UUID) {
+        guard let indexNews = MockData.shared.mockNews.firstIndex(where: { $0.id == index }) else { return }
+        MockData.shared.mockNews[indexNews].liked.toggle()
+        fetchNews()
     }
 }

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol NewsCellChangeDelegate: AnyObject {
+    func changeCell(index: UUID)
+}
+
 class NewsTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlets
@@ -18,6 +22,11 @@ class NewsTableViewCell: UITableViewCell {
     @IBOutlet weak var likeButton: LikeButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
+    // MARK: - Properties
+    
+    var delegate: NewsCellChangeDelegate?
+    private var currentIndex: UUID?
     
     // MARK: - Lyfe Cycle
     
@@ -34,16 +43,24 @@ class NewsTableViewCell: UITableViewCell {
         backView.layer.shadowRadius = 3
         backView.layer.shadowOpacity = 0.05
         backView.layer.shadowOffset = CGSize(width: 5, height: 5)
+        
+        likeButton.addTarget(self, action: #selector(likedDidTap), for: .touchUpInside)
+    }
+    
+    @objc private func likedDidTap(_ sender: UIButton) {
+        guard let delegate = delegate, let currentIndex = currentIndex else { return }
+        delegate.changeCell(index: currentIndex)
     }
     
     // MARK: - Methods
     
-    func configure(news: News) {
-        mainImageView.image = news.image
-        dateLabel.text = news.date.simpleFormat()
-        titleLabel.text = news.title
-        likeButton.liked = news.liked
-        descriptionLabel.text = news.textNews
+    func configure(item: News) {
+        currentIndex = item.id
+        mainImageView.image = item.image
+        dateLabel.text = item.date.simpleFormat()
+        titleLabel.text = item.title
+        likeButton.liked = item.liked
+        descriptionLabel.text = item.textNews
     }
     
 }

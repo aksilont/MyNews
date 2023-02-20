@@ -25,6 +25,7 @@
 		7A4F700029A0BD7800594C4B /* UIViewController+GetFromStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4F6FFF29A0BD7800594C4B /* UIViewController+GetFromStoryboard.swift */; };
 		7A53D6C8299F701800F9A80E /* BarSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A53D6C7299F701800F9A80E /* BarSeparator.swift */; };
 		7A53D6CE299F762800F9A80E /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A53D6CD299F762800F9A80E /* Place.swift */; };
+		7A7F587D29A3406C00D0F620 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F587C29A3406B00D0F620 /* MockData.swift */; };
 		7AAF9F1F299E225D0048F2F5 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAF9F1E299E225D0048F2F5 /* News.swift */; };
 		7AAF9F22299E53BB0048F2F5 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAF9F21299E53BB0048F2F5 /* LikeButton.swift */; };
 		7AAF9F24299E9FAB0048F2F5 /* Date+SimpleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAF9F23299E9FAB0048F2F5 /* Date+SimpleFormat.swift */; };
@@ -69,6 +70,7 @@
 		7A4F6FFF29A0BD7800594C4B /* UIViewController+GetFromStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+GetFromStoryboard.swift"; sourceTree = "<group>"; };
 		7A53D6C7299F701800F9A80E /* BarSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarSeparator.swift; sourceTree = "<group>"; };
 		7A53D6CD299F762800F9A80E /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		7A7F587C29A3406B00D0F620 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		7AAF9F1E299E225D0048F2F5 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		7AAF9F21299E53BB0048F2F5 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		7AAF9F23299E9FAB0048F2F5 /* Date+SimpleFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+SimpleFormat.swift"; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				7AD7B5C929A01D1A00A98528 /* UserProfile.swift */,
 				7AAF9F1E299E225D0048F2F5 /* News.swift */,
 				7A53D6CD299F762800F9A80E /* Place.swift */,
+				7A7F587C29A3406B00D0F620 /* MockData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				7AAFB24E29A25D66009F4456 /* AuthError.swift in Sources */,
 				7A07B0FA299D05200063839C /* MapViewController.swift in Sources */,
 				7AD7B5C629A00A1900A98528 /* MapService.swift in Sources */,
+				7A7F587D29A3406C00D0F620 /* MockData.swift in Sources */,
 				7A07B0FE299D05400063839C /* ProfileViewController.swift in Sources */,
 				7AAFB25529A266CB009F4456 /* UIViewController+Alert.swift in Sources */,
 				7A53D6C8299F701800F9A80E /* BarSeparator.swift in Sources */,
