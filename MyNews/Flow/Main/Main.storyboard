@@ -235,6 +235,10 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="one-time-code"/>
+                                        <connections>
+                                            <action selector="passwordEditingDidBegan:" destination="IkY-el-SM3" eventType="editingDidBegin" id="h32-SD-WL9"/>
+                                            <action selector="passwordEditingDidEnd:" destination="IkY-el-SM3" eventType="editingDidEnd" id="14N-1g-g34"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                             </stackView>

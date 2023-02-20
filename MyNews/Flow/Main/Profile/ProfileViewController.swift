@@ -65,4 +65,12 @@ class ProfileViewController: UIViewController {
         }
         self.showAlertExit(title: "Выход", message: "Вы уверены что хотите выйти из аккаунта", handler: handerAlert)
     }
+    
+    @IBAction func passwordEditingDidBegan(_ sender: UITextField) {
+        sender.isSecureTextEntry = false
+    }
+    
+    @IBAction func passwordEditingDidEnd(_ sender: UITextField) {
+        sender.isSecureTextEntry = true
+    }
 }
